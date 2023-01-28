@@ -1,0 +1,1003 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="OtomasyonDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="BasvuruTablosu">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Fk_KisiID" Type="int" Nullable="false" />
+          <Property Name="Fk_ProgramID" Type="int" Nullable="false" />
+          <Property Name="Dekont" Type="varchar(max)" />
+          <Property Name="BasvuruTarihi" Type="datetime" />
+          <Property Name="IpAdresi" Type="varchar(max)" />
+          <Property Name="Fk_SecilenLisansID" Type="int" />
+          <Property Name="Fk_SecilenSinavID" Type="int" />
+          <Property Name="Fk_SecilenYuksekLisansID" Type="int" />
+          <Property Name="Sonuc" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="BolumTablosu">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Fk_FakulteID" Type="int" Nullable="false" />
+          <Property Name="Fk_UniversiteID" Type="int" Nullable="false" />
+          <Property Name="BolumAd" Type="varchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EgitimTuru">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EgitimTuru" Type="varchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FakulteTablosu">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="FakulteAd" Type="varchar(max)" Nullable="false" />
+          <Property Name="Fk_UniversiteID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GuncellemeTablosu">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Fk_KisiID" Type="int" Nullable="false" />
+          <Property Name="Fk_GuncellemeYapanID" Type="int" Nullable="false" />
+          <Property Name="GuncellemeTarihi" Type="datetime" Nullable="false" />
+          <Property Name="IpAdresi" Type="varchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="KisiTablosu">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Ad" Type="varchar(max)" Nullable="false" />
+          <Property Name="Soyad" Type="varchar(max)" Nullable="false" />
+          <Property Name="BabaAdi" Type="varchar(max)" Nullable="false" />
+          <Property Name="TC" Type="bigint" Nullable="false" />
+          <Property Name="Sifre" Type="varchar(max)" Nullable="false" />
+          <Property Name="DogumTarihi" Type="date" />
+          <Property Name="Telefon" Type="bigint" />
+          <Property Name="Email" Type="varchar(max)" Nullable="false" />
+          <Property Name="Adres" Type="varchar(max)" />
+          <Property Name="Fotograf" Type="varchar(max)" />
+          <Property Name="KayitZamani" Type="datetime" />
+          <Property Name="IpAdresi" Type="varchar(max)" />
+          <Property Name="YoneticiMi" Type="bit" />
+        </EntityType>
+        <EntityType Name="LisansTablosu">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Fk_KisiID" Type="int" Nullable="false" />
+          <Property Name="Fk_UniversiteID" Type="int" Nullable="false" />
+          <Property Name="Fk_FakulteID" Type="int" Nullable="false" />
+          <Property Name="Fk_BolumID" Type="int" Nullable="false" />
+          <Property Name="DiplomaNotu" Type="decimal" Precision="5" Scale="2" />
+          <Property Name="NotSistemi" Type="bit" />
+          <Property Name="DiplomaOrnegi" Type="varchar(max)" Nullable="false" />
+          <Property Name="Fk_EgitimTuruID" Type="int" Nullable="false" />
+          <Property Name="KayitTarihi" Type="datetime" />
+          <Property Name="IpAdresi" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="ProgramTablosu">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProgramAd" Type="varchar(max)" Nullable="false" />
+          <Property Name="Fk_FakulteID" Type="int" Nullable="false" />
+          <Property Name="Fk_BolumID" Type="int" Nullable="false" />
+          <Property Name="Kontenjan" Type="int" Nullable="false" />
+          <Property Name="TezDurumu" Type="bit" Nullable="false" />
+          <Property Name="Detay" Type="varchar(max)" />
+          <Property Name="PrograminDili" Type="varchar(max)" />
+          <Property Name="YuksekLisansMi" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SinavTablosu">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Fk_KisiID" Type="int" Nullable="false" />
+          <Property Name="SinavTuru" Type="varchar(max)" />
+          <Property Name="Puan" Type="decimal" Precision="5" Scale="2" Nullable="false" />
+          <Property Name="SinavSonucBelgesi" Type="varchar(max)" Nullable="false" />
+          <Property Name="KayitTarihi" Type="datetime" />
+          <Property Name="IpAdresi" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="UniversiteTablosu">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="UniversiteAd" Type="varchar(max)" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_BasvuruTablosu_KisiTablosu">
+          <End Role="KisiTablosu" Type="Self.KisiTablosu" Multiplicity="1" />
+          <End Role="BasvuruTablosu" Type="Self.BasvuruTablosu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KisiTablosu">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BasvuruTablosu">
+              <PropertyRef Name="Fk_KisiID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BasvuruTablosu_LisansTablosu">
+          <End Role="LisansTablosu" Type="Self.LisansTablosu" Multiplicity="0..1" />
+          <End Role="BasvuruTablosu" Type="Self.BasvuruTablosu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LisansTablosu">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BasvuruTablosu">
+              <PropertyRef Name="Fk_SecilenLisansID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BasvuruTablosu_LisansTablosu1">
+          <End Role="LisansTablosu" Type="Self.LisansTablosu" Multiplicity="0..1" />
+          <End Role="BasvuruTablosu" Type="Self.BasvuruTablosu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LisansTablosu">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BasvuruTablosu">
+              <PropertyRef Name="Fk_SecilenYuksekLisansID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BasvuruTablosu_SinavTablosu">
+          <End Role="SinavTablosu" Type="Self.SinavTablosu" Multiplicity="0..1" />
+          <End Role="BasvuruTablosu" Type="Self.BasvuruTablosu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SinavTablosu">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BasvuruTablosu">
+              <PropertyRef Name="Fk_SecilenSinavID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BolumTablosu_FakulteTablosu">
+          <End Role="FakulteTablosu" Type="Self.FakulteTablosu" Multiplicity="1" />
+          <End Role="BolumTablosu" Type="Self.BolumTablosu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FakulteTablosu">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BolumTablosu">
+              <PropertyRef Name="Fk_FakulteID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BolumTablosu_UniversiteTablosu">
+          <End Role="UniversiteTablosu" Type="Self.UniversiteTablosu" Multiplicity="1" />
+          <End Role="BolumTablosu" Type="Self.BolumTablosu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UniversiteTablosu">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BolumTablosu">
+              <PropertyRef Name="Fk_UniversiteID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FakulteTablosu_UniversiteTablosu">
+          <End Role="UniversiteTablosu" Type="Self.UniversiteTablosu" Multiplicity="1" />
+          <End Role="FakulteTablosu" Type="Self.FakulteTablosu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UniversiteTablosu">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="FakulteTablosu">
+              <PropertyRef Name="Fk_UniversiteID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GuncellemeTablosu_KisiTablosu">
+          <End Role="KisiTablosu" Type="Self.KisiTablosu" Multiplicity="1" />
+          <End Role="GuncellemeTablosu" Type="Self.GuncellemeTablosu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KisiTablosu">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="GuncellemeTablosu">
+              <PropertyRef Name="Fk_KisiID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LisansTablosu_BolumTablosu">
+          <End Role="BolumTablosu" Type="Self.BolumTablosu" Multiplicity="1" />
+          <End Role="LisansTablosu" Type="Self.LisansTablosu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BolumTablosu">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="LisansTablosu">
+              <PropertyRef Name="Fk_BolumID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LisansTablosu_EgitimTuru">
+          <End Role="EgitimTuru" Type="Self.EgitimTuru" Multiplicity="1" />
+          <End Role="LisansTablosu" Type="Self.LisansTablosu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EgitimTuru">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="LisansTablosu">
+              <PropertyRef Name="Fk_EgitimTuruID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LisansTablosu_FakulteTablosu">
+          <End Role="FakulteTablosu" Type="Self.FakulteTablosu" Multiplicity="1" />
+          <End Role="LisansTablosu" Type="Self.LisansTablosu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FakulteTablosu">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="LisansTablosu">
+              <PropertyRef Name="Fk_FakulteID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LisansTablosu_KisiTablosu">
+          <End Role="KisiTablosu" Type="Self.KisiTablosu" Multiplicity="1" />
+          <End Role="LisansTablosu" Type="Self.LisansTablosu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KisiTablosu">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="LisansTablosu">
+              <PropertyRef Name="Fk_KisiID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LisansTablosu_UniversiteTablosu">
+          <End Role="UniversiteTablosu" Type="Self.UniversiteTablosu" Multiplicity="1" />
+          <End Role="LisansTablosu" Type="Self.LisansTablosu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UniversiteTablosu">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="LisansTablosu">
+              <PropertyRef Name="Fk_UniversiteID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProgramTablosu_BolumTablosu">
+          <End Role="BolumTablosu" Type="Self.BolumTablosu" Multiplicity="1" />
+          <End Role="ProgramTablosu" Type="Self.ProgramTablosu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BolumTablosu">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ProgramTablosu">
+              <PropertyRef Name="Fk_BolumID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProgramTablosu_FakulteTablosu">
+          <End Role="FakulteTablosu" Type="Self.FakulteTablosu" Multiplicity="1" />
+          <End Role="ProgramTablosu" Type="Self.ProgramTablosu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FakulteTablosu">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ProgramTablosu">
+              <PropertyRef Name="Fk_FakulteID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SinavTablosu_KisiTablosu">
+          <End Role="KisiTablosu" Type="Self.KisiTablosu" Multiplicity="1" />
+          <End Role="SinavTablosu" Type="Self.SinavTablosu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KisiTablosu">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SinavTablosu">
+              <PropertyRef Name="Fk_KisiID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="OtomasyonDBModelStoreContainer">
+          <EntitySet Name="BasvuruTablosu" EntityType="Self.BasvuruTablosu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BolumTablosu" EntityType="Self.BolumTablosu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EgitimTuru" EntityType="Self.EgitimTuru" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FakulteTablosu" EntityType="Self.FakulteTablosu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GuncellemeTablosu" EntityType="Self.GuncellemeTablosu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KisiTablosu" EntityType="Self.KisiTablosu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LisansTablosu" EntityType="Self.LisansTablosu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProgramTablosu" EntityType="Self.ProgramTablosu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SinavTablosu" EntityType="Self.SinavTablosu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UniversiteTablosu" EntityType="Self.UniversiteTablosu" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_BasvuruTablosu_KisiTablosu" Association="Self.FK_BasvuruTablosu_KisiTablosu">
+            <End Role="KisiTablosu" EntitySet="KisiTablosu" />
+            <End Role="BasvuruTablosu" EntitySet="BasvuruTablosu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BasvuruTablosu_LisansTablosu" Association="Self.FK_BasvuruTablosu_LisansTablosu">
+            <End Role="LisansTablosu" EntitySet="LisansTablosu" />
+            <End Role="BasvuruTablosu" EntitySet="BasvuruTablosu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BasvuruTablosu_LisansTablosu1" Association="Self.FK_BasvuruTablosu_LisansTablosu1">
+            <End Role="LisansTablosu" EntitySet="LisansTablosu" />
+            <End Role="BasvuruTablosu" EntitySet="BasvuruTablosu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BasvuruTablosu_SinavTablosu" Association="Self.FK_BasvuruTablosu_SinavTablosu">
+            <End Role="SinavTablosu" EntitySet="SinavTablosu" />
+            <End Role="BasvuruTablosu" EntitySet="BasvuruTablosu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BolumTablosu_FakulteTablosu" Association="Self.FK_BolumTablosu_FakulteTablosu">
+            <End Role="FakulteTablosu" EntitySet="FakulteTablosu" />
+            <End Role="BolumTablosu" EntitySet="BolumTablosu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BolumTablosu_UniversiteTablosu" Association="Self.FK_BolumTablosu_UniversiteTablosu">
+            <End Role="UniversiteTablosu" EntitySet="UniversiteTablosu" />
+            <End Role="BolumTablosu" EntitySet="BolumTablosu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FakulteTablosu_UniversiteTablosu" Association="Self.FK_FakulteTablosu_UniversiteTablosu">
+            <End Role="UniversiteTablosu" EntitySet="UniversiteTablosu" />
+            <End Role="FakulteTablosu" EntitySet="FakulteTablosu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GuncellemeTablosu_KisiTablosu" Association="Self.FK_GuncellemeTablosu_KisiTablosu">
+            <End Role="KisiTablosu" EntitySet="KisiTablosu" />
+            <End Role="GuncellemeTablosu" EntitySet="GuncellemeTablosu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LisansTablosu_BolumTablosu" Association="Self.FK_LisansTablosu_BolumTablosu">
+            <End Role="BolumTablosu" EntitySet="BolumTablosu" />
+            <End Role="LisansTablosu" EntitySet="LisansTablosu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LisansTablosu_EgitimTuru" Association="Self.FK_LisansTablosu_EgitimTuru">
+            <End Role="EgitimTuru" EntitySet="EgitimTuru" />
+            <End Role="LisansTablosu" EntitySet="LisansTablosu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LisansTablosu_FakulteTablosu" Association="Self.FK_LisansTablosu_FakulteTablosu">
+            <End Role="FakulteTablosu" EntitySet="FakulteTablosu" />
+            <End Role="LisansTablosu" EntitySet="LisansTablosu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LisansTablosu_KisiTablosu" Association="Self.FK_LisansTablosu_KisiTablosu">
+            <End Role="KisiTablosu" EntitySet="KisiTablosu" />
+            <End Role="LisansTablosu" EntitySet="LisansTablosu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LisansTablosu_UniversiteTablosu" Association="Self.FK_LisansTablosu_UniversiteTablosu">
+            <End Role="UniversiteTablosu" EntitySet="UniversiteTablosu" />
+            <End Role="LisansTablosu" EntitySet="LisansTablosu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProgramTablosu_BolumTablosu" Association="Self.FK_ProgramTablosu_BolumTablosu">
+            <End Role="BolumTablosu" EntitySet="BolumTablosu" />
+            <End Role="ProgramTablosu" EntitySet="ProgramTablosu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProgramTablosu_FakulteTablosu" Association="Self.FK_ProgramTablosu_FakulteTablosu">
+            <End Role="FakulteTablosu" EntitySet="FakulteTablosu" />
+            <End Role="ProgramTablosu" EntitySet="ProgramTablosu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SinavTablosu_KisiTablosu" Association="Self.FK_SinavTablosu_KisiTablosu">
+            <End Role="KisiTablosu" EntitySet="KisiTablosu" />
+            <End Role="SinavTablosu" EntitySet="SinavTablosu" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="OtomasyonDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="BasvuruTablosu">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Fk_KisiID" Type="Int32" Nullable="false" />
+          <Property Name="Fk_ProgramID" Type="Int32" Nullable="false" />
+          <Property Name="Dekont" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="BasvuruTarihi" Type="DateTime" Precision="3" />
+          <Property Name="IpAdresi" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Fk_SecilenLisansID" Type="Int32" />
+          <Property Name="Fk_SecilenSinavID" Type="Int32" />
+          <NavigationProperty Name="KisiTablosu" Relationship="Self.FK_BasvuruTablosu_KisiTablosu" FromRole="BasvuruTablosu" ToRole="KisiTablosu" />
+          <NavigationProperty Name="LisansTablosu" Relationship="Self.FK_BasvuruTablosu_LisansTablosu" FromRole="BasvuruTablosu" ToRole="LisansTablosu" />
+          <NavigationProperty Name="SinavTablosu" Relationship="Self.FK_BasvuruTablosu_SinavTablosu" FromRole="BasvuruTablosu" ToRole="SinavTablosu" />
+          <Property Name="Fk_SecilenYuksekLisansID" Type="Int32" />
+          <NavigationProperty Name="LisansTablosu1" Relationship="OtomasyonDBModel.FK_BasvuruTablosu_LisansTablosu1" FromRole="BasvuruTablosu" ToRole="LisansTablosu" />
+          <Property Name="Sonuc" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="BolumTablosu">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Fk_FakulteID" Type="Int32" Nullable="false" />
+          <Property Name="Fk_UniversiteID" Type="Int32" Nullable="false" />
+          <Property Name="BolumAd" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="FakulteTablosu" Relationship="Self.FK_BolumTablosu_FakulteTablosu" FromRole="BolumTablosu" ToRole="FakulteTablosu" />
+          <NavigationProperty Name="UniversiteTablosu" Relationship="Self.FK_BolumTablosu_UniversiteTablosu" FromRole="BolumTablosu" ToRole="UniversiteTablosu" />
+          <NavigationProperty Name="LisansTablosu" Relationship="Self.FK_LisansTablosu_BolumTablosu" FromRole="BolumTablosu" ToRole="LisansTablosu" />
+          <NavigationProperty Name="ProgramTablosu" Relationship="Self.FK_ProgramTablosu_BolumTablosu" FromRole="BolumTablosu" ToRole="ProgramTablosu" />
+        </EntityType>
+        <EntityType Name="EgitimTuru">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EgitimTuru1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="LisansTablosu" Relationship="Self.FK_LisansTablosu_EgitimTuru" FromRole="EgitimTuru" ToRole="LisansTablosu" />
+        </EntityType>
+        <EntityType Name="FakulteTablosu">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="FakulteAd" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Fk_UniversiteID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="BolumTablosu" Relationship="Self.FK_BolumTablosu_FakulteTablosu" FromRole="FakulteTablosu" ToRole="BolumTablosu" />
+          <NavigationProperty Name="UniversiteTablosu" Relationship="Self.FK_FakulteTablosu_UniversiteTablosu" FromRole="FakulteTablosu" ToRole="UniversiteTablosu" />
+          <NavigationProperty Name="LisansTablosu" Relationship="Self.FK_LisansTablosu_FakulteTablosu" FromRole="FakulteTablosu" ToRole="LisansTablosu" />
+          <NavigationProperty Name="ProgramTablosu" Relationship="Self.FK_ProgramTablosu_FakulteTablosu" FromRole="FakulteTablosu" ToRole="ProgramTablosu" />
+        </EntityType>
+        <EntityType Name="GuncellemeTablosu">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Fk_KisiID" Type="Int32" Nullable="false" />
+          <Property Name="Fk_GuncellemeYapanID" Type="Int32" Nullable="false" />
+          <Property Name="GuncellemeTarihi" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IpAdresi" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="KisiTablosu" Relationship="Self.FK_GuncellemeTablosu_KisiTablosu" FromRole="GuncellemeTablosu" ToRole="KisiTablosu" />
+        </EntityType>
+        <EntityType Name="KisiTablosu">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Ad" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Soyad" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="BabaAdi" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TC" Type="Int64" Nullable="false" />
+          <Property Name="Sifre" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DogumTarihi" Type="DateTime" Precision="0" />
+          <Property Name="Telefon" Type="Int64" />
+          <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Adres" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Fotograf" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="KayitZamani" Type="DateTime" Precision="3" />
+          <Property Name="IpAdresi" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="YoneticiMi" Type="Boolean" />
+          <NavigationProperty Name="BasvuruTablosu" Relationship="Self.FK_BasvuruTablosu_KisiTablosu" FromRole="KisiTablosu" ToRole="BasvuruTablosu" />
+          <NavigationProperty Name="GuncellemeTablosu" Relationship="Self.FK_GuncellemeTablosu_KisiTablosu" FromRole="KisiTablosu" ToRole="GuncellemeTablosu" />
+          <NavigationProperty Name="LisansTablosu" Relationship="Self.FK_LisansTablosu_KisiTablosu" FromRole="KisiTablosu" ToRole="LisansTablosu" />
+          <NavigationProperty Name="SinavTablosu" Relationship="Self.FK_SinavTablosu_KisiTablosu" FromRole="KisiTablosu" ToRole="SinavTablosu" />
+        </EntityType>
+        <EntityType Name="LisansTablosu">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Fk_KisiID" Type="Int32" Nullable="false" />
+          <Property Name="Fk_UniversiteID" Type="Int32" Nullable="false" />
+          <Property Name="Fk_FakulteID" Type="Int32" Nullable="false" />
+          <Property Name="Fk_BolumID" Type="Int32" Nullable="false" />
+          <Property Name="DiplomaNotu" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="NotSistemi" Type="Boolean" />
+          <Property Name="DiplomaOrnegi" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Fk_EgitimTuruID" Type="Int32" Nullable="false" />
+          <Property Name="KayitTarihi" Type="DateTime" Precision="3" />
+          <Property Name="IpAdresi" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="BasvuruTablosu" Relationship="Self.FK_BasvuruTablosu_LisansTablosu" FromRole="LisansTablosu" ToRole="BasvuruTablosu" />
+          <NavigationProperty Name="BolumTablosu" Relationship="Self.FK_LisansTablosu_BolumTablosu" FromRole="LisansTablosu" ToRole="BolumTablosu" />
+          <NavigationProperty Name="EgitimTuru" Relationship="Self.FK_LisansTablosu_EgitimTuru" FromRole="LisansTablosu" ToRole="EgitimTuru" />
+          <NavigationProperty Name="FakulteTablosu" Relationship="Self.FK_LisansTablosu_FakulteTablosu" FromRole="LisansTablosu" ToRole="FakulteTablosu" />
+          <NavigationProperty Name="KisiTablosu" Relationship="Self.FK_LisansTablosu_KisiTablosu" FromRole="LisansTablosu" ToRole="KisiTablosu" />
+          <NavigationProperty Name="UniversiteTablosu" Relationship="Self.FK_LisansTablosu_UniversiteTablosu" FromRole="LisansTablosu" ToRole="UniversiteTablosu" />
+          <NavigationProperty Name="BasvuruTablosu1" Relationship="OtomasyonDBModel.FK_BasvuruTablosu_LisansTablosu1" FromRole="LisansTablosu" ToRole="BasvuruTablosu" />
+        </EntityType>
+        <EntityType Name="ProgramTablosu">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProgramAd" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Fk_FakulteID" Type="Int32" Nullable="false" />
+          <Property Name="Fk_BolumID" Type="Int32" Nullable="false" />
+          <Property Name="Kontenjan" Type="Int32" Nullable="false" />
+          <Property Name="TezDurumu" Type="Boolean" Nullable="false" />
+          <Property Name="Detay" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="PrograminDili" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="YuksekLisansMi" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="BolumTablosu" Relationship="Self.FK_ProgramTablosu_BolumTablosu" FromRole="ProgramTablosu" ToRole="BolumTablosu" />
+          <NavigationProperty Name="FakulteTablosu" Relationship="Self.FK_ProgramTablosu_FakulteTablosu" FromRole="ProgramTablosu" ToRole="FakulteTablosu" />
+        </EntityType>
+        <EntityType Name="SinavTablosu">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Fk_KisiID" Type="Int32" Nullable="false" />
+          <Property Name="SinavTuru" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Puan" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
+          <Property Name="SinavSonucBelgesi" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="KayitTarihi" Type="DateTime" Precision="3" />
+          <Property Name="IpAdresi" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="BasvuruTablosu" Relationship="Self.FK_BasvuruTablosu_SinavTablosu" FromRole="SinavTablosu" ToRole="BasvuruTablosu" />
+          <NavigationProperty Name="KisiTablosu" Relationship="Self.FK_SinavTablosu_KisiTablosu" FromRole="SinavTablosu" ToRole="KisiTablosu" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="UniversiteTablosu">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="UniversiteAd" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="BolumTablosu" Relationship="Self.FK_BolumTablosu_UniversiteTablosu" FromRole="UniversiteTablosu" ToRole="BolumTablosu" />
+          <NavigationProperty Name="FakulteTablosu" Relationship="Self.FK_FakulteTablosu_UniversiteTablosu" FromRole="UniversiteTablosu" ToRole="FakulteTablosu" />
+          <NavigationProperty Name="LisansTablosu" Relationship="Self.FK_LisansTablosu_UniversiteTablosu" FromRole="UniversiteTablosu" ToRole="LisansTablosu" />
+        </EntityType>
+        <Association Name="FK_BasvuruTablosu_KisiTablosu">
+          <End Role="KisiTablosu" Type="Self.KisiTablosu" Multiplicity="1" />
+          <End Role="BasvuruTablosu" Type="Self.BasvuruTablosu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KisiTablosu">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BasvuruTablosu">
+              <PropertyRef Name="Fk_KisiID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BasvuruTablosu_LisansTablosu">
+          <End Role="LisansTablosu" Type="Self.LisansTablosu" Multiplicity="0..1" />
+          <End Role="BasvuruTablosu" Type="Self.BasvuruTablosu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LisansTablosu">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BasvuruTablosu">
+              <PropertyRef Name="Fk_SecilenLisansID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BasvuruTablosu_SinavTablosu">
+          <End Role="SinavTablosu" Type="Self.SinavTablosu" Multiplicity="0..1" />
+          <End Role="BasvuruTablosu" Type="Self.BasvuruTablosu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SinavTablosu">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BasvuruTablosu">
+              <PropertyRef Name="Fk_SecilenSinavID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BolumTablosu_FakulteTablosu">
+          <End Role="FakulteTablosu" Type="Self.FakulteTablosu" Multiplicity="1" />
+          <End Role="BolumTablosu" Type="Self.BolumTablosu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FakulteTablosu">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BolumTablosu">
+              <PropertyRef Name="Fk_FakulteID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BolumTablosu_UniversiteTablosu">
+          <End Role="UniversiteTablosu" Type="Self.UniversiteTablosu" Multiplicity="1" />
+          <End Role="BolumTablosu" Type="Self.BolumTablosu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UniversiteTablosu">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BolumTablosu">
+              <PropertyRef Name="Fk_UniversiteID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LisansTablosu_BolumTablosu">
+          <End Role="BolumTablosu" Type="Self.BolumTablosu" Multiplicity="1" />
+          <End Role="LisansTablosu" Type="Self.LisansTablosu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BolumTablosu">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="LisansTablosu">
+              <PropertyRef Name="Fk_BolumID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProgramTablosu_BolumTablosu">
+          <End Role="BolumTablosu" Type="Self.BolumTablosu" Multiplicity="1" />
+          <End Role="ProgramTablosu" Type="Self.ProgramTablosu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BolumTablosu">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ProgramTablosu">
+              <PropertyRef Name="Fk_BolumID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LisansTablosu_EgitimTuru">
+          <End Role="EgitimTuru" Type="Self.EgitimTuru" Multiplicity="1" />
+          <End Role="LisansTablosu" Type="Self.LisansTablosu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EgitimTuru">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="LisansTablosu">
+              <PropertyRef Name="Fk_EgitimTuruID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FakulteTablosu_UniversiteTablosu">
+          <End Role="UniversiteTablosu" Type="Self.UniversiteTablosu" Multiplicity="1" />
+          <End Role="FakulteTablosu" Type="Self.FakulteTablosu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UniversiteTablosu">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="FakulteTablosu">
+              <PropertyRef Name="Fk_UniversiteID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LisansTablosu_FakulteTablosu">
+          <End Role="FakulteTablosu" Type="Self.FakulteTablosu" Multiplicity="1" />
+          <End Role="LisansTablosu" Type="Self.LisansTablosu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FakulteTablosu">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="LisansTablosu">
+              <PropertyRef Name="Fk_FakulteID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProgramTablosu_FakulteTablosu">
+          <End Role="FakulteTablosu" Type="Self.FakulteTablosu" Multiplicity="1" />
+          <End Role="ProgramTablosu" Type="Self.ProgramTablosu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FakulteTablosu">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ProgramTablosu">
+              <PropertyRef Name="Fk_FakulteID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GuncellemeTablosu_KisiTablosu">
+          <End Role="KisiTablosu" Type="Self.KisiTablosu" Multiplicity="1" />
+          <End Role="GuncellemeTablosu" Type="Self.GuncellemeTablosu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KisiTablosu">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="GuncellemeTablosu">
+              <PropertyRef Name="Fk_KisiID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LisansTablosu_KisiTablosu">
+          <End Role="KisiTablosu" Type="Self.KisiTablosu" Multiplicity="1" />
+          <End Role="LisansTablosu" Type="Self.LisansTablosu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KisiTablosu">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="LisansTablosu">
+              <PropertyRef Name="Fk_KisiID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SinavTablosu_KisiTablosu">
+          <End Role="KisiTablosu" Type="Self.KisiTablosu" Multiplicity="1" />
+          <End Role="SinavTablosu" Type="Self.SinavTablosu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KisiTablosu">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SinavTablosu">
+              <PropertyRef Name="Fk_KisiID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LisansTablosu_UniversiteTablosu">
+          <End Role="UniversiteTablosu" Type="Self.UniversiteTablosu" Multiplicity="1" />
+          <End Role="LisansTablosu" Type="Self.LisansTablosu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UniversiteTablosu">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="LisansTablosu">
+              <PropertyRef Name="Fk_UniversiteID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="OtomasyonDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="BasvuruTablosu" EntityType="Self.BasvuruTablosu" />
+          <EntitySet Name="BolumTablosu" EntityType="Self.BolumTablosu" />
+          <EntitySet Name="EgitimTuru" EntityType="Self.EgitimTuru" />
+          <EntitySet Name="FakulteTablosu" EntityType="Self.FakulteTablosu" />
+          <EntitySet Name="GuncellemeTablosu" EntityType="Self.GuncellemeTablosu" />
+          <EntitySet Name="KisiTablosu" EntityType="Self.KisiTablosu" />
+          <EntitySet Name="LisansTablosu" EntityType="Self.LisansTablosu" />
+          <EntitySet Name="ProgramTablosu" EntityType="Self.ProgramTablosu" />
+          <EntitySet Name="SinavTablosu" EntityType="Self.SinavTablosu" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="UniversiteTablosu" EntityType="Self.UniversiteTablosu" />
+          <AssociationSet Name="FK_BasvuruTablosu_KisiTablosu" Association="Self.FK_BasvuruTablosu_KisiTablosu">
+            <End Role="KisiTablosu" EntitySet="KisiTablosu" />
+            <End Role="BasvuruTablosu" EntitySet="BasvuruTablosu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BasvuruTablosu_LisansTablosu" Association="Self.FK_BasvuruTablosu_LisansTablosu">
+            <End Role="LisansTablosu" EntitySet="LisansTablosu" />
+            <End Role="BasvuruTablosu" EntitySet="BasvuruTablosu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BasvuruTablosu_SinavTablosu" Association="Self.FK_BasvuruTablosu_SinavTablosu">
+            <End Role="SinavTablosu" EntitySet="SinavTablosu" />
+            <End Role="BasvuruTablosu" EntitySet="BasvuruTablosu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BolumTablosu_FakulteTablosu" Association="Self.FK_BolumTablosu_FakulteTablosu">
+            <End Role="FakulteTablosu" EntitySet="FakulteTablosu" />
+            <End Role="BolumTablosu" EntitySet="BolumTablosu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BolumTablosu_UniversiteTablosu" Association="Self.FK_BolumTablosu_UniversiteTablosu">
+            <End Role="UniversiteTablosu" EntitySet="UniversiteTablosu" />
+            <End Role="BolumTablosu" EntitySet="BolumTablosu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LisansTablosu_BolumTablosu" Association="Self.FK_LisansTablosu_BolumTablosu">
+            <End Role="BolumTablosu" EntitySet="BolumTablosu" />
+            <End Role="LisansTablosu" EntitySet="LisansTablosu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProgramTablosu_BolumTablosu" Association="Self.FK_ProgramTablosu_BolumTablosu">
+            <End Role="BolumTablosu" EntitySet="BolumTablosu" />
+            <End Role="ProgramTablosu" EntitySet="ProgramTablosu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LisansTablosu_EgitimTuru" Association="Self.FK_LisansTablosu_EgitimTuru">
+            <End Role="EgitimTuru" EntitySet="EgitimTuru" />
+            <End Role="LisansTablosu" EntitySet="LisansTablosu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FakulteTablosu_UniversiteTablosu" Association="Self.FK_FakulteTablosu_UniversiteTablosu">
+            <End Role="UniversiteTablosu" EntitySet="UniversiteTablosu" />
+            <End Role="FakulteTablosu" EntitySet="FakulteTablosu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LisansTablosu_FakulteTablosu" Association="Self.FK_LisansTablosu_FakulteTablosu">
+            <End Role="FakulteTablosu" EntitySet="FakulteTablosu" />
+            <End Role="LisansTablosu" EntitySet="LisansTablosu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProgramTablosu_FakulteTablosu" Association="Self.FK_ProgramTablosu_FakulteTablosu">
+            <End Role="FakulteTablosu" EntitySet="FakulteTablosu" />
+            <End Role="ProgramTablosu" EntitySet="ProgramTablosu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GuncellemeTablosu_KisiTablosu" Association="Self.FK_GuncellemeTablosu_KisiTablosu">
+            <End Role="KisiTablosu" EntitySet="KisiTablosu" />
+            <End Role="GuncellemeTablosu" EntitySet="GuncellemeTablosu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LisansTablosu_KisiTablosu" Association="Self.FK_LisansTablosu_KisiTablosu">
+            <End Role="KisiTablosu" EntitySet="KisiTablosu" />
+            <End Role="LisansTablosu" EntitySet="LisansTablosu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SinavTablosu_KisiTablosu" Association="Self.FK_SinavTablosu_KisiTablosu">
+            <End Role="KisiTablosu" EntitySet="KisiTablosu" />
+            <End Role="SinavTablosu" EntitySet="SinavTablosu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LisansTablosu_UniversiteTablosu" Association="Self.FK_LisansTablosu_UniversiteTablosu">
+            <End Role="UniversiteTablosu" EntitySet="UniversiteTablosu" />
+            <End Role="LisansTablosu" EntitySet="LisansTablosu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BasvuruTablosu_LisansTablosu1" Association="OtomasyonDBModel.FK_BasvuruTablosu_LisansTablosu1">
+            <End Role="LisansTablosu" EntitySet="LisansTablosu" />
+            <End Role="BasvuruTablosu" EntitySet="BasvuruTablosu" />
+          </AssociationSet>
+        </EntityContainer>
+        <Association Name="FK_BasvuruTablosu_LisansTablosu1">
+          <End Type="OtomasyonDBModel.LisansTablosu" Role="LisansTablosu" Multiplicity="0..1" />
+          <End Type="OtomasyonDBModel.BasvuruTablosu" Role="BasvuruTablosu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LisansTablosu">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BasvuruTablosu">
+              <PropertyRef Name="Fk_SecilenYuksekLisansID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="OtomasyonDBModelStoreContainer" CdmEntityContainer="OtomasyonDBEntities">
+          <EntitySetMapping Name="BasvuruTablosu">
+            <EntityTypeMapping TypeName="OtomasyonDBModel.BasvuruTablosu">
+              <MappingFragment StoreEntitySet="BasvuruTablosu">
+                <ScalarProperty Name="Sonuc" ColumnName="Sonuc" />
+                <ScalarProperty Name="Fk_SecilenYuksekLisansID" ColumnName="Fk_SecilenYuksekLisansID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Fk_KisiID" ColumnName="Fk_KisiID" />
+                <ScalarProperty Name="Fk_ProgramID" ColumnName="Fk_ProgramID" />
+                <ScalarProperty Name="Dekont" ColumnName="Dekont" />
+                <ScalarProperty Name="BasvuruTarihi" ColumnName="BasvuruTarihi" />
+                <ScalarProperty Name="IpAdresi" ColumnName="IpAdresi" />
+                <ScalarProperty Name="Fk_SecilenLisansID" ColumnName="Fk_SecilenLisansID" />
+                <ScalarProperty Name="Fk_SecilenSinavID" ColumnName="Fk_SecilenSinavID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BolumTablosu">
+            <EntityTypeMapping TypeName="OtomasyonDBModel.BolumTablosu">
+              <MappingFragment StoreEntitySet="BolumTablosu">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Fk_FakulteID" ColumnName="Fk_FakulteID" />
+                <ScalarProperty Name="Fk_UniversiteID" ColumnName="Fk_UniversiteID" />
+                <ScalarProperty Name="BolumAd" ColumnName="BolumAd" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EgitimTuru">
+            <EntityTypeMapping TypeName="OtomasyonDBModel.EgitimTuru">
+              <MappingFragment StoreEntitySet="EgitimTuru">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="EgitimTuru1" ColumnName="EgitimTuru" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FakulteTablosu">
+            <EntityTypeMapping TypeName="OtomasyonDBModel.FakulteTablosu">
+              <MappingFragment StoreEntitySet="FakulteTablosu">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="FakulteAd" ColumnName="FakulteAd" />
+                <ScalarProperty Name="Fk_UniversiteID" ColumnName="Fk_UniversiteID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GuncellemeTablosu">
+            <EntityTypeMapping TypeName="OtomasyonDBModel.GuncellemeTablosu">
+              <MappingFragment StoreEntitySet="GuncellemeTablosu">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Fk_KisiID" ColumnName="Fk_KisiID" />
+                <ScalarProperty Name="Fk_GuncellemeYapanID" ColumnName="Fk_GuncellemeYapanID" />
+                <ScalarProperty Name="GuncellemeTarihi" ColumnName="GuncellemeTarihi" />
+                <ScalarProperty Name="IpAdresi" ColumnName="IpAdresi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KisiTablosu">
+            <EntityTypeMapping TypeName="OtomasyonDBModel.KisiTablosu">
+              <MappingFragment StoreEntitySet="KisiTablosu">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Ad" ColumnName="Ad" />
+                <ScalarProperty Name="Soyad" ColumnName="Soyad" />
+                <ScalarProperty Name="BabaAdi" ColumnName="BabaAdi" />
+                <ScalarProperty Name="TC" ColumnName="TC" />
+                <ScalarProperty Name="Sifre" ColumnName="Sifre" />
+                <ScalarProperty Name="DogumTarihi" ColumnName="DogumTarihi" />
+                <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Adres" ColumnName="Adres" />
+                <ScalarProperty Name="Fotograf" ColumnName="Fotograf" />
+                <ScalarProperty Name="KayitZamani" ColumnName="KayitZamani" />
+                <ScalarProperty Name="IpAdresi" ColumnName="IpAdresi" />
+                <ScalarProperty Name="YoneticiMi" ColumnName="YoneticiMi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LisansTablosu">
+            <EntityTypeMapping TypeName="OtomasyonDBModel.LisansTablosu">
+              <MappingFragment StoreEntitySet="LisansTablosu">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Fk_KisiID" ColumnName="Fk_KisiID" />
+                <ScalarProperty Name="Fk_UniversiteID" ColumnName="Fk_UniversiteID" />
+                <ScalarProperty Name="Fk_FakulteID" ColumnName="Fk_FakulteID" />
+                <ScalarProperty Name="Fk_BolumID" ColumnName="Fk_BolumID" />
+                <ScalarProperty Name="DiplomaNotu" ColumnName="DiplomaNotu" />
+                <ScalarProperty Name="NotSistemi" ColumnName="NotSistemi" />
+                <ScalarProperty Name="DiplomaOrnegi" ColumnName="DiplomaOrnegi" />
+                <ScalarProperty Name="Fk_EgitimTuruID" ColumnName="Fk_EgitimTuruID" />
+                <ScalarProperty Name="KayitTarihi" ColumnName="KayitTarihi" />
+                <ScalarProperty Name="IpAdresi" ColumnName="IpAdresi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProgramTablosu">
+            <EntityTypeMapping TypeName="OtomasyonDBModel.ProgramTablosu">
+              <MappingFragment StoreEntitySet="ProgramTablosu">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ProgramAd" ColumnName="ProgramAd" />
+                <ScalarProperty Name="Fk_FakulteID" ColumnName="Fk_FakulteID" />
+                <ScalarProperty Name="Fk_BolumID" ColumnName="Fk_BolumID" />
+                <ScalarProperty Name="Kontenjan" ColumnName="Kontenjan" />
+                <ScalarProperty Name="TezDurumu" ColumnName="TezDurumu" />
+                <ScalarProperty Name="Detay" ColumnName="Detay" />
+                <ScalarProperty Name="PrograminDili" ColumnName="PrograminDili" />
+                <ScalarProperty Name="YuksekLisansMi" ColumnName="YuksekLisansMi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SinavTablosu">
+            <EntityTypeMapping TypeName="OtomasyonDBModel.SinavTablosu">
+              <MappingFragment StoreEntitySet="SinavTablosu">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Fk_KisiID" ColumnName="Fk_KisiID" />
+                <ScalarProperty Name="SinavTuru" ColumnName="SinavTuru" />
+                <ScalarProperty Name="Puan" ColumnName="Puan" />
+                <ScalarProperty Name="SinavSonucBelgesi" ColumnName="SinavSonucBelgesi" />
+                <ScalarProperty Name="KayitTarihi" ColumnName="KayitTarihi" />
+                <ScalarProperty Name="IpAdresi" ColumnName="IpAdresi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="OtomasyonDBModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UniversiteTablosu">
+            <EntityTypeMapping TypeName="OtomasyonDBModel.UniversiteTablosu">
+              <MappingFragment StoreEntitySet="UniversiteTablosu">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="UniversiteAd" ColumnName="UniversiteAd" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

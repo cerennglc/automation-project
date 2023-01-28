@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="OtomasyonDBModelStoreContainer" CdmEntityContainer="OtomasyonDBEntities">
+    <EntitySetMapping Name="BasvuruTablosu">
+      <EntityTypeMapping TypeName="OtomasyonDBModel.BasvuruTablosu">
+        <MappingFragment StoreEntitySet="BasvuruTablosu">
+          <ScalarProperty Name="Sonuc" ColumnName="Sonuc" />
+          <ScalarProperty Name="Fk_SecilenYuksekLisansID" ColumnName="Fk_SecilenYuksekLisansID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Fk_KisiID" ColumnName="Fk_KisiID" />
+          <ScalarProperty Name="Fk_ProgramID" ColumnName="Fk_ProgramID" />
+          <ScalarProperty Name="Dekont" ColumnName="Dekont" />
+          <ScalarProperty Name="BasvuruTarihi" ColumnName="BasvuruTarihi" />
+          <ScalarProperty Name="IpAdresi" ColumnName="IpAdresi" />
+          <ScalarProperty Name="Fk_SecilenLisansID" ColumnName="Fk_SecilenLisansID" />
+          <ScalarProperty Name="Fk_SecilenSinavID" ColumnName="Fk_SecilenSinavID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BolumTablosu">
+      <EntityTypeMapping TypeName="OtomasyonDBModel.BolumTablosu">
+        <MappingFragment StoreEntitySet="BolumTablosu">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Fk_FakulteID" ColumnName="Fk_FakulteID" />
+          <ScalarProperty Name="Fk_UniversiteID" ColumnName="Fk_UniversiteID" />
+          <ScalarProperty Name="BolumAd" ColumnName="BolumAd" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EgitimTuru">
+      <EntityTypeMapping TypeName="OtomasyonDBModel.EgitimTuru">
+        <MappingFragment StoreEntitySet="EgitimTuru">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="EgitimTuru1" ColumnName="EgitimTuru" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FakulteTablosu">
+      <EntityTypeMapping TypeName="OtomasyonDBModel.FakulteTablosu">
+        <MappingFragment StoreEntitySet="FakulteTablosu">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="FakulteAd" ColumnName="FakulteAd" />
+          <ScalarProperty Name="Fk_UniversiteID" ColumnName="Fk_UniversiteID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GuncellemeTablosu">
+      <EntityTypeMapping TypeName="OtomasyonDBModel.GuncellemeTablosu">
+        <MappingFragment StoreEntitySet="GuncellemeTablosu">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Fk_KisiID" ColumnName="Fk_KisiID" />
+          <ScalarProperty Name="Fk_GuncellemeYapanID" ColumnName="Fk_GuncellemeYapanID" />
+          <ScalarProperty Name="GuncellemeTarihi" ColumnName="GuncellemeTarihi" />
+          <ScalarProperty Name="IpAdresi" ColumnName="IpAdresi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KisiTablosu">
+      <EntityTypeMapping TypeName="OtomasyonDBModel.KisiTablosu">
+        <MappingFragment StoreEntitySet="KisiTablosu">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Ad" ColumnName="Ad" />
+          <ScalarProperty Name="Soyad" ColumnName="Soyad" />
+          <ScalarProperty Name="BabaAdi" ColumnName="BabaAdi" />
+          <ScalarProperty Name="TC" ColumnName="TC" />
+          <ScalarProperty Name="Sifre" ColumnName="Sifre" />
+          <ScalarProperty Name="DogumTarihi" ColumnName="DogumTarihi" />
+          <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Adres" ColumnName="Adres" />
+          <ScalarProperty Name="Fotograf" ColumnName="Fotograf" />
+          <ScalarProperty Name="KayitZamani" ColumnName="KayitZamani" />
+          <ScalarProperty Name="IpAdresi" ColumnName="IpAdresi" />
+          <ScalarProperty Name="YoneticiMi" ColumnName="YoneticiMi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LisansTablosu">
+      <EntityTypeMapping TypeName="OtomasyonDBModel.LisansTablosu">
+        <MappingFragment StoreEntitySet="LisansTablosu">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Fk_KisiID" ColumnName="Fk_KisiID" />
+          <ScalarProperty Name="Fk_UniversiteID" ColumnName="Fk_UniversiteID" />
+          <ScalarProperty Name="Fk_FakulteID" ColumnName="Fk_FakulteID" />
+          <ScalarProperty Name="Fk_BolumID" ColumnName="Fk_BolumID" />
+          <ScalarProperty Name="DiplomaNotu" ColumnName="DiplomaNotu" />
+          <ScalarProperty Name="NotSistemi" ColumnName="NotSistemi" />
+          <ScalarProperty Name="DiplomaOrnegi" ColumnName="DiplomaOrnegi" />
+          <ScalarProperty Name="Fk_EgitimTuruID" ColumnName="Fk_EgitimTuruID" />
+          <ScalarProperty Name="KayitTarihi" ColumnName="KayitTarihi" />
+          <ScalarProperty Name="IpAdresi" ColumnName="IpAdresi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProgramTablosu">
+      <EntityTypeMapping TypeName="OtomasyonDBModel.ProgramTablosu">
+        <MappingFragment StoreEntitySet="ProgramTablosu">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ProgramAd" ColumnName="ProgramAd" />
+          <ScalarProperty Name="Fk_FakulteID" ColumnName="Fk_FakulteID" />
+          <ScalarProperty Name="Fk_BolumID" ColumnName="Fk_BolumID" />
+          <ScalarProperty Name="Kontenjan" ColumnName="Kontenjan" />
+          <ScalarProperty Name="TezDurumu" ColumnName="TezDurumu" />
+          <ScalarProperty Name="Detay" ColumnName="Detay" />
+          <ScalarProperty Name="PrograminDili" ColumnName="PrograminDili" />
+          <ScalarProperty Name="YuksekLisansMi" ColumnName="YuksekLisansMi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SinavTablosu">
+      <EntityTypeMapping TypeName="OtomasyonDBModel.SinavTablosu">
+        <MappingFragment StoreEntitySet="SinavTablosu">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Fk_KisiID" ColumnName="Fk_KisiID" />
+          <ScalarProperty Name="SinavTuru" ColumnName="SinavTuru" />
+          <ScalarProperty Name="Puan" ColumnName="Puan" />
+          <ScalarProperty Name="SinavSonucBelgesi" ColumnName="SinavSonucBelgesi" />
+          <ScalarProperty Name="KayitTarihi" ColumnName="KayitTarihi" />
+          <ScalarProperty Name="IpAdresi" ColumnName="IpAdresi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="OtomasyonDBModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UniversiteTablosu">
+      <EntityTypeMapping TypeName="OtomasyonDBModel.UniversiteTablosu">
+        <MappingFragment StoreEntitySet="UniversiteTablosu">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="UniversiteAd" ColumnName="UniversiteAd" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

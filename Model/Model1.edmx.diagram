@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="bc3ee902a3c0402bbf73426019ea2a29" Name="Diagram1">
+        <EntityTypeShape EntityType="OtomasyonDBModel.BasvuruTablosu" Width="1.5" PointX="5.25" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="OtomasyonDBModel.BolumTablosu" Width="1.5" PointX="0.75" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="OtomasyonDBModel.EgitimTuru" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="OtomasyonDBModel.FakulteTablosu" Width="1.5" PointX="1.5" PointY="14.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="OtomasyonDBModel.GuncellemeTablosu" Width="1.5" PointX="3" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="OtomasyonDBModel.KisiTablosu" Width="1.5" PointX="0.75" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="OtomasyonDBModel.LisansTablosu" Width="1.5" PointX="3" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="OtomasyonDBModel.ProgramTablosu" Width="1.5" PointX="5.75" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="OtomasyonDBModel.SinavTablosu" Width="1.5" PointX="3" PointY="18.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="OtomasyonDBModel.sysdiagrams" Width="1.5" PointX="2.75" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="OtomasyonDBModel.UniversiteTablosu" Width="1.5" PointX="1.5" PointY="22.75" IsExpanded="true" />
+        <AssociationConnector Association="OtomasyonDBModel.FK_BasvuruTablosu_KisiTablosu" ManuallyRouted="false" />
+        <AssociationConnector Association="OtomasyonDBModel.FK_BasvuruTablosu_LisansTablosu" ManuallyRouted="false" />
+        <AssociationConnector Association="OtomasyonDBModel.FK_BasvuruTablosu_SinavTablosu" ManuallyRouted="false" />
+        <AssociationConnector Association="OtomasyonDBModel.FK_BolumTablosu_FakulteTablosu" ManuallyRouted="false" />
+        <AssociationConnector Association="OtomasyonDBModel.FK_BolumTablosu_UniversiteTablosu" ManuallyRouted="false" />
+        <AssociationConnector Association="OtomasyonDBModel.FK_LisansTablosu_BolumTablosu" ManuallyRouted="false" />
+        <AssociationConnector Association="OtomasyonDBModel.FK_ProgramTablosu_BolumTablosu" ManuallyRouted="false" />
+        <AssociationConnector Association="OtomasyonDBModel.FK_LisansTablosu_EgitimTuru" ManuallyRouted="false" />
+        <AssociationConnector Association="OtomasyonDBModel.FK_FakulteTablosu_UniversiteTablosu" ManuallyRouted="false" />
+        <AssociationConnector Association="OtomasyonDBModel.FK_LisansTablosu_FakulteTablosu" ManuallyRouted="false" />
+        <AssociationConnector Association="OtomasyonDBModel.FK_ProgramTablosu_FakulteTablosu" ManuallyRouted="false" />
+        <AssociationConnector Association="OtomasyonDBModel.FK_GuncellemeTablosu_KisiTablosu" ManuallyRouted="false" />
+        <AssociationConnector Association="OtomasyonDBModel.FK_LisansTablosu_KisiTablosu" ManuallyRouted="false" />
+        <AssociationConnector Association="OtomasyonDBModel.FK_SinavTablosu_KisiTablosu" ManuallyRouted="false" />
+        <AssociationConnector Association="OtomasyonDBModel.FK_LisansTablosu_UniversiteTablosu" ManuallyRouted="false" />
+        <AssociationConnector Association="OtomasyonDBModel.FK_BasvuruTablosu_LisansTablosu1" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

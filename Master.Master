@@ -1,0 +1,58 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Master.master.cs" Inherits="YukseklisansProje.Master" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="Bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+
+        <nav class="navbar navbar-expand-sm navbar-light border border-bottom  ">
+            <div class="container-fluid text-black font-monospace fs-5 fw-bold">
+                <img src="../Bootstrap/images/Cu_Logo.png" alt="Logo" style="width: 90px;" class="rounded-pill ms-5">
+                <a class="navbar-brand fs-3 ms-3" style="color:green" href="Anasayfa.aspx">ÇUKUROVA<br /> ÜNİVERSİTESİ</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-around" id="collapsibleNavbar">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="Anasayfa.aspx">ANASAYFA</a>
+                        </li>
+                        
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">BİLGİLERİM</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="KisiselBilgi.aspx">KİŞİSEL BİLGİLER</a></li>
+                                <li><a class="dropdown-item" href="LisansBilgi.aspx">LİSANS BİLGİLERİ</a></li>
+                                <li><a class="dropdown-item" href="SinavBilgi.aspx">SINAV BİLGİLERİ</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">BAŞVURU</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="BasvuruSayfasi.aspx">BAŞVURU YAP</a></li>
+                                <li><a class="dropdown-item" href="Basvurularim.aspx">BAŞVURULARIM</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <asp:Button ID="Button1" class="btn btn-danger" runat="server" Text="Çıkış" OnClick="Button1_Click" />
+                </div>
+            </div>
+        </nav>
+
+        <div class="container mt-3">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+        <script src="Bootstrap/js/bootstrap.bundle.min.js"></script>
+    </form>
+</body>
+</html>
